@@ -9,6 +9,10 @@ function gameInitialization() {
   tank2.style.top = "250px";
   turn = 1;
 }
+// const TP1 = tank1.style.top
+// const LP1 = tank1.style.left
+// console.log(TP1);
+// console.log(LP1);
 gameInitialization();
 document.onkeydown = function (e) {
   switch (e.key) {
@@ -68,15 +72,32 @@ function moveLeft() {
 }
 function moveRight() {
   const leftPosition = tank1.style.left.replace(/px/g, "");
-  const topPostition = tank1.style.top.replace(/px/g, "");
+  // const topPostition = tank1.style.top.replace(/px/g, "");
   tank1.classList.remove("up");
   tank1.classList.remove("down");
   tank1.classList.remove("left");
   tank1.classList.add("right");
-  console.log(+topPostition);
-  if (+leftPosition < playGround.clientWidth - 80) {
+  // console.log(+topPostition);
+  console.log(tank1.style.left);
+  console.log(tank1.style.top);
+  if (
+    tank1.style.top < 340
+    // tank1.style.top > 40 &&
+    // tank1.style.left > 30 &&
+    // tank1.style.left < 50
+  ) {
+    tank1.classList.add("shakeIt");
+    console.log('first');
+  } else if (
+    (+leftPosition < playGround.clientWidth - 80
+       && +tank1.style.top > 340) ||
+    +tank1.style.top < 40 ||
+    +tank1.style.left < 30 ||
+    +tank1.style.left > 200
+  ) {
     tank1.style.left = +leftPosition + 20 + "px";
   } else {
     tank1.classList.add("shakeIt");
+    console.log('second');
   }
 }
