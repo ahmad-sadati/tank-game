@@ -22,9 +22,8 @@ body {
   background-size: contain;
   width: 100px;
   height: 250px;
-  position: relative;
-  left: 100px;
-  top: 100px;
+  position: absolute;
+
 }
 .block-n2 {
   transform: rotate(90deg);
@@ -35,6 +34,7 @@ body {
   width: 50px;
   position: absolute;
   transition: all 0.4s;
+  z-index: 1;
 }
 .tank2 {
   width: 50px;
@@ -91,4 +91,14 @@ body {
   animation: shake 0.5s;
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
+}
+.ball{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(210, 96, 10);
+  position: absolute;
+  z-index: 0;
+  transition: all 0.4s;
+
 }
